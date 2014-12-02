@@ -1,0 +1,19 @@
+development: 
+  adapter: postgresql 
+  endcoding: utf8
+  reconect: false 
+  database: development_appointment
+  pool: 5
+  username: postgres
+  password: qawsedrf
+  host: localhost 
+
+production: 
+  adapter: postgresql 
+  endcoding: utf8
+  reconect: false 
+  database: appointment
+  pool: 5
+  username: postgres
+  password: qawsedrf
+  host: localhost 
