@@ -1,0 +1,38 @@
+<h1>Listing appointments</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Code</th>
+      <th>Birthdate</th>
+      <th>Gender</th>
+      <th>Date apointement</th>
+      <th>Physician</th>
+      <th>Is cancel</th>
+      <th>Reason cancel</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @appointments.each do |appointment| %>
+      <tr>
+        <td><%= appointment.patient_name %></td>
+        <td><%= appointment.patient_code %></td>
+        <td><%= format_date appointment.birthdate %></td>
+        <td><%= appointment.gender %></td>
+        <td><%= appointment.date_apointement %></td>
+        <td><%= "#{appointment.physician.first_name rescue nil} #{appointment.physician.last_name rescue nil}" %></td>
+        <td><%= appointment.is_cancel %></td>
+        <td><%= appointment.reason_cancel %></td>
+        <td><%= link_to 'Edit', edit_appointment_path(appointment) %></td>
+        <td><%= link_to 'Destroy', appointment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Appointment', new_appointment_path %>

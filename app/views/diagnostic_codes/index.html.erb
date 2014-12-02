@@ -1,0 +1,28 @@
+<h1>Listing diagnostic_codes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Description</th>
+      <th>Code</th>
+      <th>Price</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @diagnostic_codes.each do |diagnostic_code| %>
+      <tr>
+        <td><%= diagnostic_code.description %></td>
+        <td><%= diagnostic_code.code %></td>
+        <td><%= number_to_currency diagnostic_code.price %></td>
+        <td><%= link_to 'Edit', edit_diagnostic_code_path(diagnostic_code) %></td>
+        <td><%= link_to 'Destroy', diagnostic_code, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Diagnotic code', new_diagnostic_code_path %>

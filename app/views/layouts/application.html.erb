@@ -8,6 +8,9 @@
 </head>
 <body>
 
+<%= show_message(notice, kind = "success") %>
+<%= show_message(alert, kind = "danger") %>
+
 <%= yield %>
 
 </body>
