@@ -1,7 +1,6 @@
 source 'https://rubygems.org'
 
 gem 'rails', '4.1.6'
-gem 'sqlite3'
 gem "therubyracer"
 gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
 gem "twitter-bootstrap-rails"
@@ -19,6 +18,8 @@ gem 'bootstrap-kaminari-views'
 gem 'pg'
 gem 'devise'
 gem 'easy_roles'
+gem 'slim-rails'
+gem 'chosen-rails'
 
 group :development do
 	gem 'spring'
