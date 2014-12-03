@@ -1,0 +1,29 @@
+<h1>Listing appointments</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Code</th>
+      <th>Date apointement</th>
+      <th>Physician</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @appointments.each do |appointment| %>
+      <tr>
+        <td><%= appointment.patient_name %></td>
+        <td><%= appointment.patient_code %></td>
+        <td><%= appointment.date_apointement %></td>
+        <td><%= "#{appointment.physician.first_name rescue nil} #{appointment.physician.last_name rescue nil}" %></td>
+        <% if appointment.is_invoice? %>
+          <td><%= link_to "#{appointment.number_invoice} - Show Invoice", show_invoice_appointment_path(appointment) %></td>
+        <% else %>
+          <td><%= link_to 'Create Invoice', new_invoice_appointment_path(appointment) %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

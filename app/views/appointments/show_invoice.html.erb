@@ -1,0 +1,64 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Number Invoice:</strong>
+  <%= @appointment.number_invoice %>
+</p>
+
+<p>
+  <strong>Date Invoice:</strong>
+  <%= format_date @appointment.date_invoice %>
+</p>
+
+<p>
+  <strong>Patient Name:</strong>
+  <%= @appointment.patient_name %>
+</p>
+
+<p>
+  <strong>Patient Code</strong>
+  <%= @appointment.patient_code %>
+</p>
+
+<p>
+  <strong>Birthdate</strong>
+  <%= format_date @appointment.birthdate %>
+</p>
+
+<p>
+  <strong>Gender</strong>
+  <%= @appointment.gender %>
+</p>
+
+<p>
+  <strong>Physician</strong>
+  <%= "#{@appointment.physician.first_name} #{@appointment.physician.last_name}" %>
+</p>
+
+<p>
+  <strong>Date Appointment</strong>
+  <%= format_date @appointment.date_apointement %>
+</p>
+
+<p>
+  <strong>Price Diagnostics</strong>
+  <table>
+  	<tr>
+	  	<th>Kode Diagnostic</th>
+	  	<th>Description Diagnostic</th>
+	  	<th>Notes</th>
+	  	<th>Price</th>
+	  </tr>
+	  <% @appointment.appointment_diagnostic_codes.each do |adc| %>
+	  	<tr>
+	  		<td><%= adc.diagnostic_code.code %></td>
+	  		<td><%= adc.diagnostic_code.description %></td>
+	  		<td><%= adc.notes %></td>
+	  		<td><%= number_to_currency adc.diagnostic_code.price %></td>
+  		</tr>
+	  <% end %>
+	  <tr>
+  		<td colspan="4" align="right"><%= number_to_currency @appointment.total_price %></td>
+  	</tr>
+  </table>
+</p>

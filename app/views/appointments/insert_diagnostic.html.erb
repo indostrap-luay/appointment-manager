@@ -1,0 +1,27 @@
+<h1>Insert Diagnostic</h1>
+
+<%= simple_nested_form_for(@appointment, url: update_diagnostic_appointment_path(@appointment)) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :patient_code, disabled: true %>
+    <%= f.input :patient_name, disabled: true %>
+    <%= f.input :birthdate, disabled: true %>
+    <%= f.input :gender, as: :select, collection: ["Male", "Female"], include_blank: false, disabled: true %>
+    <%= f.input :date_apointement, disabled: true %>
+    <hr>
+    <%= f.simple_fields_for :appointment_diagnostic_codes do |dg| %>
+		  <%= dg.input :notes %>
+		  <%= dg.input :diagnostic_code_id, as: :select, collection: DiagnosticCode.all.map{|item| ["#{item.code} - #{item.description}", item.id] } %>
+		  <%= dg.link_to_remove "Remove" %>
+		<% end %>
+		<p><%= f.link_to_add "Add", :appointment_diagnostic_codes %></p>
+
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
+
+<%= link_to 'Back', appointments_path %>

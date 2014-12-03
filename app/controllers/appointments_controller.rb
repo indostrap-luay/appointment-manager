@@ -1,6 +1,6 @@
 class AppointmentsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_appointment, only: [:show, :edit, :update, :destroy]
+  before_action :set_appointment, only: [:show, :edit, :update, :destroy, :insert_diagnostic, :update_diagnostic, :new_invoice, :update_invoice, :show_invoice]
 
   respond_to :html
 
@@ -45,7 +45,38 @@ class AppointmentsController < ApplicationController
   end
 
   def physician
-    @appointments = Appointment.where(physician_id: current_user.id)
+    @appointments = Appointment.where("physician_id = ? AND is_cancel = false", current_user.id)
+  end
+
+  def insert_diagnostic
+  end
+
+  def update_diagnostic
+    if @appointment.update_attributes(appointment_params)
+      @appointment.update(is_have_diagnostic: true)
+      redirect_to physician_appointments_path, notice: "Success Ssave"
+    else
+      render insert_diagnostic
+    end
+  end
+
+  def invoice
+    @appointments = Appointment.where(is_have_diagnostic: true)
+  end
+
+  def new_invoice
+  end
+
+  def show_invoice
+  end
+
+  def update_invoice
+    if @appointment.update_attributes(appointment_params)
+      @appointment.update_attributes(is_invoice: true, date_invoice: Time.now)
+      redirect_to invoice_appointments_path, notice: "Success Ssave"
+    else
+      render "new_invoice"
+    end
   end
 
   private
@@ -54,6 +85,6 @@ class AppointmentsController < ApplicationController
     end
 
     def appointment_params
-      params.require(:appointment).permit(:date_apointement, :is_cancel, :reason_cancel, :patient_name, :patient_code, :birthdate, :gender, :physician_id)
+      params.require(:appointment).permit(:number_invoice, :date_apointement, :is_cancel, :reason_cancel, :patient_name, :patient_code, :birthdate, :gender, :physician_id, appointment_diagnostic_codes_attributes: [:id, :appointment_id, :diagnostic_code_id, :notes, :_destroy])
     end
 end
