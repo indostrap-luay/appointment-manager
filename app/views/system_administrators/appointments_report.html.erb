@@ -1,0 +1,49 @@
+<h1>Listing Appointments</h1>
+
+<table class="datatable">
+  <thead>
+    <tr>
+      <th>Patient Name</th>
+      <th>Patient Code</th>
+      <th>Date Appointment</th>
+      <th>Physician</th>
+      <th>Status</th>
+      <th>Created at</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @appointments.each do |appointment| %>
+      <tr>
+        <td><%= appointment.patient_name %></td>
+        <td><%= appointment.patient_code %></td>
+        <td><%= appointment.date_apointement %></td>
+        <td><%= appointment.physician.first_name + " " + appointment.physician.last_name %></td>
+        <td><%= appointment.is_cancel %></td>
+        <td><%= appointment.created_at %></td>
+        <td><%= link_to 'Detail', appointment_path(appointment) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Appointment', new_appointment_path %>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('.datatable').DataTable({
+      // ajax: ...,
+      // autoWidth: false,
+      // pagingType: 'full_numbers',
+      // processing: true,
+      // serverSide: true,
+
+      // Optional, if you want full pagination controls.
+      // Check dataTables documentation to learn more about available options.
+      // http://datatables.net/reference/option/pagingType
+    });
+  });
+</script>
