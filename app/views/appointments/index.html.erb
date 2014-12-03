@@ -1,6 +1,6 @@
 <h1>Listing appointments</h1>
 
-<table>
+<table class="datatable">
   <thead>
     <tr>
       <th>Name</th>
@@ -11,7 +11,7 @@
       <th>Physician</th>
       <th>Is cancel</th>
       <th>Reason cancel</th>
-      <th colspan="2"></th>
+      <th colspan="2">Actions</th>
     </tr>
   </thead>
 
@@ -36,3 +36,19 @@
 <br>
 
 <%= link_to 'New Appointment', new_appointment_path %>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('.datatable').DataTable({
+      // ajax: ...,
+      // autoWidth: false,
+      // pagingType: 'full_numbers',
+      // processing: true,
+      // serverSide: true,
+
+      // Optional, if you want full pagination controls.
+      // Check dataTables documentation to learn more about available options.
+      // http://datatables.net/reference/option/pagingType
+    });
+  });
+</script>

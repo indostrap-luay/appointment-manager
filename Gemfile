@@ -6,7 +6,7 @@ gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) support
 gem "twitter-bootstrap-rails"
 gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails'
-gem 'turbolinks'
+# gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'puma'

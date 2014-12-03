@@ -1,12 +1,12 @@
-<h1>Listing diagnostic_codes</h1>
+<h1>Listing Diagnostic Codes</h1>
 
-<table>
+<table class="datatable">
   <thead>
     <tr>
       <th>Description</th>
       <th>Code</th>
       <th>Price</th>
-      <th colspan="2"></th>
+      <th colspan="2">Actions</th>
     </tr>
   </thead>
 
@@ -25,4 +25,20 @@
 
 <br>
 
-<%= link_to 'New Diagnotic code', new_diagnostic_code_path %>
+<%= link_to 'New Diagnostic code', new_diagnostic_code_path %>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('.datatable').DataTable({
+      // ajax: ...,
+      // autoWidth: false,
+      // pagingType: 'full_numbers',
+      // processing: true,
+      // serverSide: true,
+
+      // Optional, if you want full pagination controls.
+      // Check dataTables documentation to learn more about available options.
+      // http://datatables.net/reference/option/pagingType
+    });
+  });
+</script>

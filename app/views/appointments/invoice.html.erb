@@ -1,6 +1,6 @@
 <h1>Listing appointments</h1>
 
-<table>
+<table class="datatable">
   <thead>
     <tr>
       <th>Name</th>
@@ -27,3 +27,19 @@
     <% end %>
   </tbody>
 </table>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('.datatable').DataTable({
+      // ajax: ...,
+      // autoWidth: false,
+      // pagingType: 'full_numbers',
+      // processing: true,
+      // serverSide: true,
+
+      // Optional, if you want full pagination controls.
+      // Check dataTables documentation to learn more about available options.
+      // http://datatables.net/reference/option/pagingType
+    });
+  });
+</script>
