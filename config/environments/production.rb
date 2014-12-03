@@ -27,25 +27,10 @@ Rails.application.configure do
   # config.assets.css_compressor = :sass
 
   # Do not fallback to assets pipeline if a precompiled asset is missed.
-  # config.assets.compile = false
+  config.assets.compile = false
   config.assets.paths << Rails.root.join("app", "assets", "fonts")
   config.assets.precompile << /\.(?:svg|eot|woff|ttf)$/
-  config.assets.precompile += %w( application.css style.css.less bootstrap_and_overrides.css.less scaffolds.css.less)
-
-  # config.assets.paths << Rails.root.join("app", "assets", "fonts")
-  # config.assets.precompile << /\.(?:svg|eot|woff|ttf)$/
-  # config.assets.precompile += %w( chosen.css v1/bootstrap.css v1/dashboard.css v1/dashboard_ext1.css v1/dataTables.bootstrap.css v1/datepicker.min.css
-  #   v1/global_old.css v1/jquery-ui.css v1/jquery.jorgchart.css v1/jquery.tagsinput.css v1/main.css v1/merge.css v1/override.css v1/style.css v1/style_main.css
-  #   bootstrap-wysihtml5.css bootstrap3-wysiwyg5.css
-
-  #   v1/app.js v1/bootstrap.min.js v1/datepicker.js v1/function.js v1/html5shiv.js v1/ie8-responsive-file-warning.js v1/jquery-1.11.0.min.js
-  #   v1/jquery-ui.js v1/jquery.dataTables.js v1/jquery.min.js v1/jquery.tagsinput.js v1/main.js
-  #   v1/mcz3gag.js v1/respond.min.js v1/script.js v1/typeahead.bundle.min.js
-
-  #   core/bootstrap3-typeahead.min.js core/chosen.jquery.min.js core/jquery.geocomplete.min.js core/jquery.jorgchart.js core/jstz.js
-  #   core/highchart/exporting.js core/highchart/highcharts.js core/prettify.js core/prettify.js core/wysihtml5-0.3.0.js
-  #   core/bootstrap3-wysihtml5.js
-  #    )
+  config.assets.precompile += %w( application.css style.css.less bootstrap_and_overrides.css.less scaffolds.css.less )
 
   # Generate digests for assets URLs.
   config.assets.digest = true
