@@ -110,6 +110,7 @@ GEM
     mime-types (2.4.3)
     minitest (5.4.3)
     multi_json (1.10.1)
+    nested_form (0.3.2)
     orm_adapter (0.5.0)
     pg (0.17.1)
     puma (2.10.2)
@@ -226,6 +227,7 @@ DEPENDENCIES
   kaminari
   less-rails
   lol_dba
+  nested_form
   pg
   puma
   quiet_assets

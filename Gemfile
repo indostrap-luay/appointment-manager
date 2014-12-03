@@ -20,6 +20,7 @@ gem 'devise'
 gem 'easy_roles'
 gem 'slim-rails'
 gem 'chosen-rails'
+gem 'nested_form'
 
 group :development do
 	gem 'spring'
