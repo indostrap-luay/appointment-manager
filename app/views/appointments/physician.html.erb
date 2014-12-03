@@ -9,8 +9,6 @@
       <th>Gender</th>
       <th>Date apointement</th>
       <th>Physician</th>
-      <th>Is cancel</th>
-      <th>Reason cancel</th>
       <th colspan="2"></th>
     </tr>
   </thead>
@@ -24,10 +22,12 @@
         <td><%= appointment.gender %></td>
         <td><%= appointment.date_apointement %></td>
         <td><%= "#{appointment.physician.first_name rescue nil} #{appointment.physician.last_name rescue nil}" %></td>
-        <td><%= appointment.is_cancel %></td>
-        <td><%= appointment.reason_cancel %></td>
-        <td><%= link_to 'Edit', edit_appointment_path(appointment) %></td>
-        <td><%= link_to 'Destroy', appointment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% if current_user.user_type == "physician"  %>
+          <td><%= link_to 'Insert Diagnostic', insert_diagnostic_appointment_path(appointment) %></td>
+        <% else %>
+          <td><%= link_to 'Edit', edit_appointment_path(appointment) %></td>
+          <td><%= link_to 'Destroy', appointment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>

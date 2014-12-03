@@ -1,13 +1,28 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Patient:</strong>
-  <%= @appointment.patient_id %>
+  <strong>Patient Name:</strong>
+  <%= @appointment.patient_name %>
+</p>
+
+<p>
+  <strong>Patient Code:</strong>
+  <%= @appointment.patient_code %>
+</p>
+
+<p>
+  <strong>Gender:</strong>
+  <%= @appointment.gender %>
 </p>
 
 <p>
   <strong>Date apointement:</strong>
   <%= @appointment.date_apointement %>
+</p>
+
+<p>
+  <strong>Physician:</strong>
+  <%= @appointment.physician.first_name + " " + @appointment.physician.last_name %>
 </p>
 
 <p>
@@ -18,6 +33,11 @@
 <p>
   <strong>Reason cancel:</strong>
   <%= @appointment.reason_cancel %>
+</p>
+
+<p>
+  <strong>Created at:</strong>
+  <%= @appointment.created_at %>
 </p>
 
 <%= link_to 'Edit', edit_appointment_path(@appointment) %> |

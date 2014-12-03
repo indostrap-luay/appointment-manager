@@ -21,6 +21,7 @@ gem 'easy_roles'
 gem 'slim-rails'
 gem 'chosen-rails'
 gem 'jquery-datatables-rails', '~> 3.1.1'
+gem 'nested_form'
 
 group :development do
 	gem 'spring'

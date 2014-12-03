@@ -7,6 +7,15 @@ Rails.application.routes.draw do
   resources :appointments do
     collection do
       get "physician"
+      get "invoice"
+    end
+
+    member do
+      get   "insert_diagnostic"
+      patch "update_diagnostic"
+      get   "new_invoice"
+      patch "update_invoice"
+      get   "show_invoice"
     end
   end
 
