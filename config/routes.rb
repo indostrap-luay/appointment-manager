@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-  resources :system_administrators
   resources :office_workers
   resources :physicians
   resources :diagnostic_codes
@@ -8,6 +7,12 @@ Rails.application.routes.draw do
   resources :appointments do
     collection do
       get "physician"
+    end
+  end
+
+  resources :system_administrators do
+    collection do
+      get "appointments_report"
     end
   end
 
