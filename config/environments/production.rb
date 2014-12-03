@@ -30,7 +30,7 @@ Rails.application.configure do
   config.assets.compile = false
   config.assets.paths << Rails.root.join("app", "assets", "fonts")
   config.assets.precompile << /\.(?:svg|eot|woff|ttf)$/
-  config.assets.precompile += %w( bootstrap.css style.css bootstrap.min.js bootstrap_and_overrides.css.less)
+  config.assets.precompile += %w( application.css style.css.less bootstrap.js bootstrap_and_overrides.css.less scaffolds.css.less application.js)
 
   # Generate digests for assets URLs.
   config.assets.digest = true
